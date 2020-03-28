@@ -1,7 +1,7 @@
 from datetime import datetime
 import mysql.connector
 
-#txt file düzenleme
+
 file = open("Output.txt", "r", encoding="utf-8")
 dolar_time = []
 dolar_price = []
@@ -15,10 +15,10 @@ print(len(dolar_time))
 #database/tablo olusturma
 
 #mydb = mysql.connector.connect(
- # host="localhost",
- # user="yourusername",
- # passwd="yourpassword",
- # database="mydatabase"
+# host="localhost",
+#  user="yourusername",
+# passwd="yourpassword",
+# database="mydatabase"
 #)
 
 #mycursor = mydb.cursor()
@@ -38,15 +38,15 @@ print(len(guncel_date))
 b = 1
 c = 0
 
-while c <= len(dolar_time):
-    while b <= len(dolar_time):
+for c in range(0, (len(guncel_date) -1)):
+    for b in range(1, (len(guncel_date) - 1)):
         if int(dolar_time[c]) - int(dolar_time[b]) >= 5:
             print(dolar_time[b], "-", dolar_time[c])
             c += 1
-            #mycursor.execute("""INSERT INTO ogrenci VALUES (?, ?)""", dolar_time[b])
+            break
+            #mycursor.execute("""INSERT INTO ogrenci VALUES (?, ?, ?)""", dolar_time[b])
         else:
             b += 1
 
-
-
+            break
 
