@@ -1,7 +1,7 @@
 from datetime import datetime
 import mysql.connector
 
-
+#txt file düzenleme
 file = open("Output.txt", "r", encoding="utf-8")
 dolar_time = []
 dolar_price = []
@@ -14,16 +14,16 @@ print(len(dolar_time))
 
 #database/tablo olusturma
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  passwd="yourpassword",
-  database="mydatabase"
-)
+#mydb = mysql.connector.connect(
+ # host="localhost",
+ # user="yourusername",
+ # passwd="yourpassword",
+ # database="mydatabase"
+#)
 
-mycursor = mydb.cursor()
+#mycursor = mydb.cursor()
 
-mycursor.execute("CREATE TABLE IF NOT EXISTS fivesec (id INT AUTO_INCREMENT PRIMARY KEY, price float(255), time datetime(255))")
+#mycursor.execute("CREATE TABLE IF NOT EXISTS fivesec (id INT AUTO_INCREMENT PRIMARY KEY, price float(255), time datetime(255))")
 
 #(eger tablo varsa) mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")
 
@@ -43,7 +43,7 @@ while c <= len(dolar_time):
         if int(dolar_time[c]) - int(dolar_time[b]) >= 5:
             print(dolar_time[b], "-", dolar_time[c])
             c += 1
-            #mycursor.execute("""INSERT INTO ogrenci VALUES (?, ?, ?)""", dolar_time[b])
+            #mycursor.execute("""INSERT INTO ogrenci VALUES (?, ?)""", dolar_time[b])
         else:
             b += 1
 
